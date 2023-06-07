@@ -9,10 +9,11 @@ import java.util.*;
 
 public class Teste {
     public static void main(String[] args){
-        Connection con = Conexao.abrirConexao();
+        Connection con = (Connection) Conexao.abrirConexao();
         
         PlanoBean cb = new PlanoBean();
-        PlanoDAO cb = new PlanoDAO(con);
+        
+        PlanoDAO cd = new PlanoDAO(con);
 
     }
 }

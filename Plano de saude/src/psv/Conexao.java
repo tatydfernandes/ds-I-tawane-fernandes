@@ -5,7 +5,8 @@
 package psv;
 
 import com.sun.jdi.connect.spi.Connection;
-import java.sql*;
+import java.io.IOException;
+import java.sql.*;
 
 public class Conexao {
     public static Connection abrirConexao(){
@@ -16,7 +17,7 @@ public class Conexao {
                 url += "jdbc:mysql://localhost/planodesaude";
                 url += "user=root&password=";
                 
-                con = DriverManager.getConnection(url);
+                con = (Connection) DriverManager.getConnection(url);
                 System.out.println("Conexão aberta");
         } catch (SQLException e){
             System.out.println(e.getMessage());
@@ -31,7 +32,7 @@ public class Conexao {
         try{
             con.close();
             System.out.println("Conexão fechada");
-        } catch (SQLException e){
+        } catch (IOException e){
             System.out.println(e.getMessage());
     } catch (Exception e){
             System.out.println(e.getMessage());
